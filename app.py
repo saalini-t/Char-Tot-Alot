@@ -17,6 +17,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
+        # Grid layout
         self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.gridLayoutWidget = QtWidgets.QWidget(parent=self.centralwidget)
@@ -25,25 +26,36 @@ class Ui_MainWindow(object):
         self.gridLayout = QtWidgets.QGridLayout(self.gridLayoutWidget)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setObjectName("gridLayout")
-        self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
-        self.pushButton.setGeometry(QtCore.QRect(120, 350, 141, 81))
-        self.pushButton.setStyleSheet("background:rgb(255, 0, 0);")
-        self.pushButton.setObjectName("pushButton")
-        self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(120, 92, 111, 21))
-        self.label_2.setStyleSheet("background:rgb(255, 255, 0);")
-        self.label_2.setObjectName("label_2")
+        # Title box
         self.label = QtWidgets.QLabel(parent=self.centralwidget)
         self.label.setGeometry(QtCore.QRect(330, 350, 341, 81))
         self.label.setStyleSheet("background :rgb(0, 255, 255);")
         self.label.setObjectName("label")
+
+        # text box for input
         self.textEdit = QtWidgets.QTextEdit(parent=self.centralwidget)
         self.textEdit.setGeometry(QtCore.QRect(120, 160, 551, 123))
         self.textEdit.setObjectName("textEdit")
+        
+        # count push button
+        self.pushButton = QtWidgets.QPushButton(parent=self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(120, 350, 141, 81))
+        self.pushButton.setStyleSheet("background:rgb(255, 0, 0);")
+        self.pushButton.setObjectName("pushButton")
+        
+        # Output label
+        self.label_2 = QtWidgets.QLabel(parent=self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(120, 92, 111, 21))
+        self.label_2.setStyleSheet("background:rgb(255, 255, 0);")
+        self.label_2.setObjectName("label_2")
+        
+        # Output the length here.
         self.label_3 = QtWidgets.QLabel(parent=self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(580, 360, 80, 51))
         self.label_3.setStyleSheet("background :rgb(255, 255, 255);")
         self.label_3.setObjectName("label_3")
+        
+        # setup 
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(parent=MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 36))
@@ -71,7 +83,8 @@ class Ui_MainWindow(object):
     
     def connectActions(self):
      self.pushButton.clicked.connect(self.count)
-
+    
+    # function to count the number of characters
     def count(self):
         text = self.textEdit.toPlainText()
         length = len(text)
